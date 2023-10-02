@@ -1,3 +1,6 @@
+# Based on ...
+# https://stackoverflow.com/a/58601448/1974918
+
 # start a new Minikube cluster:
 minikube start
 
@@ -11,7 +14,8 @@ kubectl cluster-info
 kubectl apply -f deployment-ssh.yaml
 
 # set up the load balancer
-kubectl apply -f loadbalancer-ssh.yaml
+# kubectl apply -f loadbalancer-ssh.yaml
+kubectl apply -f nodeport-ssh.yaml
 
 # check status of your service and find the external IP (if assigned)
 kubectl get svc ssh-app -n default
@@ -25,7 +29,8 @@ minikube ip
 
 kubectl get svc ssh-app -n default -o=jsonpath='{.spec.ports[0].nodePort}'
 
-ssh -vvv root@192.168.49.2 -p 32636
+# ssh -vvv root@192.168.49.2 -p 32636
+ssh -vvv root@192.168.49.2 -p 30036
 
 # checking status
 kubectl get pods -n default
@@ -44,11 +49,6 @@ kubectl get svc ssh-app -n default
 # clean up the Kubernetes resources you've created, you can delete the service and deployment
 kubectl delete svc ssh-app -n default
 kubectl delete deployment ssh-app -n default
-
-kubectl delete svc debugger -n default
-kubectl delete deployment debugger -n default
-
-
 
 # stop the Minikube cluster:
 minikube stop
