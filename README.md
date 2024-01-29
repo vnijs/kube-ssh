@@ -10,7 +10,7 @@ kubectl delete -f <configuration file>
 ```
 Lists one or more pods:
 ```bash
-kubectl get pod
+kubectl get pods
 ```
 Delete a pod:
 ```bash
@@ -26,7 +26,7 @@ kubectl exec -it <pod_name> /bin/sh
 ```
 List one or more nodes:
 ```bash
-kubectl get node
+kubectl get nodes
 ```
 Create or update the Persistent Volume based on the specifications in the YAML file:
 ```bash
