@@ -36,3 +36,11 @@ Create or update the Persistent Volume Claim to request storage from a PV:
 ```bash
 kubectl apply -f <pvc-configuration-file.yaml>
 ```
+Display endpoint information about the master and services in the cluster:
+```bash
+kubectl cluster-info
+```
+Get the configuration of the cluster:
+```bash
+kubectl config view
+```
