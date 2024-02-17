@@ -22,7 +22,7 @@ kubectl describe pod <pod_name>
 ```
 Get an interactive shell on a single-container pod:
 ```bash
-kubectl exec -it <pod_name> /bin/sh
+kubectl exec -it <pod_name> -- /bin/sh
 ```
 List one or more nodes:
 ```bash
